@@ -3,33 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImpSwitch - Under Construction</title>
+    <title>ImpSwitch - Whimsical Handmade Crafts</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <nav>
             <img src="images/imp_switch.png" alt="ImpSwitch Logo" class="logo">
             <h1>ImpSwitch</h1>
-            <p>Whimsical Handmade Crafts</p>
-        </header>
-        <main>
-            <h2>Under Construction</h2>
-            <p>We're brewing up something magical! Our website is currently under construction as we craft the perfect online space for our Trolls, Fairies, Witches, Gnomes, and D&D supplies.</p>
-            <p>Everything is handmade with love and a touch of mischief. Stay tuned for updates!</p>
-            <div class="coming-soon">
-                <h3>Coming Soon:</h3>
-                <ul>
-                    <li>Shop our collection of whimsical items</li>
-                    <li>Learn about our market appearances</li>
-                    <li>Custom orders and commissions</li>
-                    <li>Behind-the-scenes crafting stories</li>
-                </ul>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Welcome to ImpSwitch</h2>
+                <p>Discover our magical collection of handmade Trolls, Fairies, Witches, Gnomes, and D&D supplies.</p>
+                <a href="#products" class="cta-button">Explore Products</a>
             </div>
-        </main>
-        <footer>
-            <p>&copy; 2025 ImpSwitch. All rights reserved.</p>
-        </footer>
+            <img src="images/booth/display-booth_main_image.jpg" alt="ImpSwitch Booth" class="hero-image">
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At ImpSwitch, we craft whimsical handmade items with love and a touch of mischief. Each piece is unique, perfect for adding magic to your home or game.</p>
+        </section>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-gallery">
+                <div class="product-item" data-images='["images/products/gnome-in-wreath.JPG", "images/products/gnome-in-wreath-02.JPG", "images/products/gnome-in-wreath-03.JPG"]' data-description="A charming gnome nestled in a beautiful wreath, perfect for holiday decor or year-round whimsy. Handcrafted with care.">
+                    <img src="images/products/gnome-in-wreath.JPG" alt="Gnome in Wreath">
+                    <p>Gnome in Wreath</p>
+                </div>
+                <div class="product-item" data-images='["images/products/large-lumberjack-gnome.jpg", "images/products/large-lumberjack-gnome-02.jpg"]' data-description="A sturdy lumberjack gnome, ready for adventure. Features detailed craftsmanship and a friendly expression.">
+                    <img src="images/products/large-lumberjack-gnome.jpg" alt="Large Lumberjack Gnome">
+                    <p>Large Lumberjack Gnome</p>
+                </div>
+                <div class="product-item" data-images='["images/products/mini-doll-wreath.JPG", "images/products/mini-doll-wreath-02.JPG", "images/products/mini-doll-wreath-03.jpg", "images/products/mini-doll-wreath-04.jpg", "images/products/mini-doll-wreath-05.jpg", "images/products/mini-doll-wreath-06.jpg", "images/products/mini-doll-wreath-07.jpg"]' data-description="Miniature doll wreaths, each one unique. Ideal for small spaces or as gifts.">
+                    <img src="images/products/mini-doll-wreath.JPG" alt="Mini Doll Wreath">
+                    <p>Mini Doll Wreath</p>
+                </div>
+                <div class="product-item" data-images='["images/products/wizard-gnome.jpg", "images/products/wizard-gnome-02.jpg"]' data-description="A mystical wizard gnome with magical accessories. Perfect for fantasy enthusiasts.">
+                    <img src="images/products/wizard-gnome.jpg" alt="Wizard Gnome">
+                    <p>Wizard Gnome</p>
+                </div>
+                <div class="product-item" data-images='["images/products/christmas-dolls.jpg"]' data-description="Festive Christmas dolls, handmade with holiday cheer.">
+                    <img src="images/products/christmas-dolls.jpg" alt="Christmas Dolls">
+                    <p>Christmas Dolls</p>
+                </div>
+                <div class="product-item" data-images='["images/products/dice-tower-woodland.jpg"]' data-description="A woodland-themed dice tower for your D&D games. Keeps dice organized and adds fun to your sessions.">
+                    <img src="images/products/dice-tower-woodland.jpg" alt="Woodland Dice Tower">
+                    <p>Woodland Dice Tower</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Interested in custom orders or commissions? Reach out!</p>
+            <p>Email: info@impswitch.com</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 ImpSwitch. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-gallery">
+                <img id="modal-main-image" src="" alt="">
+                <div class="thumbnail-gallery">
+                    <!-- Thumbnails will be added here -->
+                </div>
+            </div>
+            <div class="modal-description">
+                <p id="modal-text"></p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById('product-modal');
+        const modalImg = document.getElementById('modal-main-image');
+        const modalText = document.getElementById('modal-text');
+        const thumbnailGallery = document.querySelector('.thumbnail-gallery');
+        const closeBtn = document.querySelector('.close');
+
+        // Add click event to product items
+        document.querySelectorAll('.product-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const images = JSON.parse(this.getAttribute('data-images'));
+                const description = this.getAttribute('data-description');
+
+                // Set main image
+                modalImg.src = images[0];
+
+                // Clear and add thumbnails
+                thumbnailGallery.innerHTML = '';
+                images.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.alt = `Thumbnail ${index + 1}`;
+                    thumb.classList.add('thumbnail');
+                    if (index === 0) thumb.classList.add('active');
+                    thumb.addEventListener('click', function() {
+                        modalImg.src = imgSrc;
+                        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                    thumbnailGallery.appendChild(thumb);
+                });
+
+                // Set description
+                modalText.textContent = description;
+
+                // Show modal
+                modal.style.display = 'block';
+            });
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
