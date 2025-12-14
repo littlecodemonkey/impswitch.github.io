@@ -1,0 +1,71 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3e5f5; /* Light purple for a magical feel */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #7b1fa2; /* Deep purple for whimsy */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #ffc107; /* Amber for fun */
+    font-size: 2em;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.coming-soon {
+    margin-top: 30px;
+}
+
+.coming-soon h3 {
+    color: #7b1fa2;
+    font-size: 1.5em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 5px solid #ffc107;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666;
+}
